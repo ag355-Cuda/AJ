@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #e9d5ff, #f5edff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .heart-card {
+      position: relative;
+      width: 360px;
+      height: 320px;
+      background: #d8b4fe;
+      transform: rotate(-45deg);
+      box-shadow: 0 12px 30px rgba(88, 28, 135, 0.18);
+      margin-top: 30px;
+    }
+
+    .heart-card::before,
+    .heart-card::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 320px;
+      background: #d8b4fe;
+      border-radius: 50%;
+    }
+
+    .heart-card::before {
+      top: -160px;
+      left: 0;
+    }
+
+    .heart-card::after {
+      left: 160px;
+      top: 0;
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      transform: rotate(45deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 1.8rem;
+      color: #4c1d95;
+      max-width: 280px;
+      line-height: 1.2;
+    }
+
+    .buttons {
+      position: relative;
+      width: 280px;
+      height: 130px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 8px 20px rgba(88, 28, 135, 0.14);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #yesBtn {
+      background: #7e22ce;
+      color: white;
+      position: absolute;
+      left: 18%;
+      top: 40px;
+    }
+
+    #noBtn {
+      background: #f3e8ff;
+      color: #4c1d95;
+      position: absolute;
+      left: 58%;
+      top: 40px;
+    }
+
+    .message {
+      margin-top: 16px;
+      font-size: 1.1rem;
+      color: #4c1d95;
+      min-height: 28px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 500px) {
+      .heart-card {
+        width: 280px;
+        height: 250px;
+      }
+
+      .heart-card::before,
+      .heart-card::after {
+        width: 280px;
+        height: 250px;
+      }
+
+      .heart-card::before {
+        top: -125px;
+      }
+
+      .heart-card::after {
+        left: 125px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        max-width: 220px;
+      }
+
+      .buttons {
+        width: 220px;
+      }
+
+      button {
+        padding: 12px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart-card">
+    <div class="content">
+      <h1>Are you the prettiest girl in the world?</h1>
+      <div class="buttons" id="playArea">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+      <div class="message" id="message"></div>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const playArea = document.getElementById('playArea');
+    const message = document.getElementById('message');
+
+    function moveNoButton() {
+      const areaRect = playArea.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+
+      const maxX = areaRect.width - btnRect.width;
+      const maxY = areaRect.height - btnRect.height;
+
+      const newX = Math.random() * Math.max(maxX, 0);
+      const newY = Math.random() * Math.max(maxY, 0);
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    }
+
+    noBtn.addEventListener('mouseenter', moveNoButton);
+    noBtn.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    yesBtn.addEventListener('click', () => {
+      message.textContent = 'Correct answer 🥰💜';
+    });
+  </script>
+</body>
+</html>
