@@ -120,10 +120,10 @@
 
     .popup-heart-wrap {
       position: relative;
-      width: 620px;
-      height: 620px;
-      max-width: 95vw;
-      max-height: 95vh;
+      width: 760px;
+      height: 760px;
+      max-width: 96vw;
+      max-height: 96vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -131,8 +131,8 @@
 
     .popup-heart-bg {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 420px;
+      height: 420px;
       background: #ead5ff;
       transform: rotate(-45deg);
       border: 2px solid #d8b4fe;
@@ -143,8 +143,8 @@
     .popup-heart-bg::after {
       content: "";
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 420px;
+      height: 420px;
       background: #ead5ff;
       border-radius: 50%;
       border: 2px solid #d8b4fe;
@@ -152,43 +152,41 @@
     }
 
     .popup-heart-bg::before {
-      top: -160px;
+      top: -210px;
       left: 0;
     }
 
     .popup-heart-bg::after {
       top: 0;
-      left: 160px;
+      left: 210px;
     }
 
     .popup-content {
       position: relative;
       z-index: 2;
-      width: 310px;
-      height: 400px;
+      width: 360px;
+      height: 520px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       text-align: center;
       color: #4c1d95;
-      padding-top: 55px;
+      padding-top: 72px;
       box-sizing: border-box;
     }
 
     .popup-content h2 {
       margin: 0 0 14px;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: #5b21b6;
     }
 
     .popup-message {
       width: 100%;
-      max-width: 280px;
-      max-height: 230px;
-      overflow-y: auto;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      max-width: 320px;
+      font-size: 0.9rem;
+      line-height: 1.45;
       white-space: pre-wrap;
       text-align: left;
       padding: 0 6px;
@@ -197,13 +195,13 @@
 
     .signature {
       display: block;
-      margin-top: 14px;
-      margin-left: 20px;
+      margin-top: 12px;
+      margin-left: 24px;
       font-weight: 700;
     }
 
     .close-btn {
-      margin-top: 18px;
+      margin-top: 16px;
       background: #7e22ce;
       color: white;
       position: static;
@@ -211,44 +209,50 @@
 
     @media (max-width: 700px) {
       .popup-heart-wrap {
-        width: 460px;
-        height: 460px;
+        width: 560px;
+        height: 560px;
       }
 
       .popup-heart-bg {
-        width: 240px;
-        height: 240px;
+        width: 300px;
+        height: 300px;
       }
 
       .popup-heart-bg::before,
       .popup-heart-bg::after {
-        width: 240px;
-        height: 240px;
+        width: 300px;
+        height: 300px;
       }
 
       .popup-heart-bg::before {
-        top: -120px;
+        top: -150px;
       }
 
       .popup-heart-bg::after {
-        left: 120px;
+        left: 150px;
       }
 
       .popup-content {
-        width: 235px;
-        height: 310px;
-        padding-top: 38px;
+        width: 255px;
+        height: 390px;
+        padding-top: 52px;
       }
 
       .popup-content h2 {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
       }
 
       .popup-message {
-        max-width: 210px;
-        max-height: 170px;
-        font-size: 0.76rem;
-        line-height: 1.45;
+        max-width: 225px;
+        font-size: 0.72rem;
+        line-height: 1.32;
+      }
+
+      .close-btn {
+        margin-top: 12px;
+        padding: 10px 18px;
+        font-size: 0.9rem;
       }
     }
 
@@ -323,7 +327,7 @@ Everyone around you is so lucky to have you in their life, and I know I am espec
 
 Being with you feels like having someone who inspires me just by being herself. I want to keep growing with you and keep making memories with you. I just want you to always remember how deeply I care about you and how thankful I am to have you in my life.
 
-<span class="signature">– Alex Guo :)</span>`;
+<span class="signature">– Alex Guo</span>`;
 
     function moveNoButton() {
       const areaRect = playArea.getBoundingClientRect();
